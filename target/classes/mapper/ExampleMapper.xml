@@ -4,10 +4,17 @@
 <mapper namespace="com.example.ExampleMapper">
   <insert id="insertJson" parameterType="String">
 
-    CREATE TABLE IF NOT EXISTS table1 (
-        id TEXT PRIMARY KEY ,v TEXT
-    );
 
-   -- INSERT INTO table1 (v) VALUES (#{json})
+
+    INSERT INTO table1 (v) VALUES (#{json})
+  </insert>
+
+
+  <insert id="crtbl" parameterType="String">
+
+    CREATE TABLE IF NOT EXISTS table1 (
+
+       id TEXT PRIMARY KEY ,v TEXT
+    )
   </insert>
 </mapper>

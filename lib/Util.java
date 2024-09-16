@@ -127,6 +127,9 @@ public class Util {
         // Use MyBatis to insert the JSON into the database
         try (SqlSession session = sqlSessionFactory.openSession()) {
 
+
+            session.insert("crtbl");
+
             session.insert("insertJson",json);
             session.commit(); // Commit the transaction
         } catch (Exception e) {
