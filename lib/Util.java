@@ -2,6 +2,8 @@ package lib;
 
 import java.io.IOException;
 import java.io.InputStream;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.Configuration;
@@ -11,6 +13,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -21,10 +24,15 @@ import java.sql.DriverManager;
 import java.util.Map;
 import java.util.Properties;
 
+import static lib.BscLogic.encodejson;
+
+import static lib.BscLogic.*;
+import static lib.BscConvert.*;
+
 public class Util {
 
-    public static void main(String[] args) {
-        try {
+    public static void main(String[] args) throws Exception {
+
             // Example Map to insert
             Map<String, Object> exampleMap = Map.of(
                     "id", "John Doe",
@@ -33,14 +41,28 @@ public class Util {
             );
 
             // Example dynamic database URL
-            String dynamicDbUrl = "dynamic_db_path.sqlt.db";
+            String dbUrl = "dynamic_db_path.sqlt.db";
 
             // Insert the Map as JSON into the database
-            insertMapAsJson(dynamicDbUrl, exampleMap);
+
+            // Convert the Map to JSON
+            String json = encodejson(exampleMap);
+
+            // Get SqlSessionFactory with the dynamic database URL
+            SqlSessionFactory sqlSessionFactory = getSqlSessionFactory(dbUrl);
+
+            // Use MyBatis to insert the JSON into the database
+            SqlSession session = sqlSessionFactory.openSession();
+
+
+            session.insert("crtbl");
+
+            session.insert("insertJson", json);
+            session.commit(); // Commit the transaction
+
+
             System.out.println("Map inserted successfully!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
 //    public static SqlSessionFactory getSqlSessionFactory2(String dbFilePath) {
@@ -83,13 +105,13 @@ public class Util {
         String resource = "mybatis-config.xml";  // Path to your MyBatis configuration file
 
         // Read template file
-        String template="";
+        String template = "";
 
-            template = Files.readString(Paths.get(resource));
+        template = Files.readString(Paths.get(resource));
 
 
-        template=template.replaceAll("@dbf@",dbFilePath);
-        InputStream inputStream =stringToInputStream(template);
+        template = template.replaceAll("@dbf@", dbFilePath);
+        InputStream inputStream = stringToInputStream(template);
 
         // Create a SqlSessionFactoryBuilder and build SqlSessionFactory
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
@@ -97,45 +119,6 @@ public class Util {
 
 
         return sqlSessionFactory;
-    }
-
-
-    /**
-     * Converts a String to an InputStream.
-     *
-     * @param str the String to be converted
-     * @return an InputStream representing the String
-     */
-    public static InputStream stringToInputStream(String str) {
-        if (str == null) {
-            return null; // or throw IllegalArgumentException
-        }
-        // Convert String to byte array using UTF-8 encoding
-        byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
-        // Create a ByteArrayInputStream from the byte array
-        return new ByteArrayInputStream(bytes);
-    }
-
-    public static void insertMapAsJson(String dbUrl, Map<String, Object> map) throws Exception {
-        // Convert the Map to JSON
-        ObjectMapper objectMapper = new ObjectMapper();
-        String json = objectMapper.writeValueAsString(map);
-
-        // Get SqlSessionFactory with the dynamic database URL
-        SqlSessionFactory sqlSessionFactory = getSqlSessionFactory(dbUrl);
-
-        // Use MyBatis to insert the JSON into the database
-        try (SqlSession session = sqlSessionFactory.openSession()) {
-
-
-            session.insert("crtbl");
-
-            session.insert("insertJson",json);
-            session.commit(); // Commit the transaction
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Error inserting data into database", e);
-        }
     }
 
 
