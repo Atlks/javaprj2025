@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import static lib.BscUi.*;
 
-public class m {
+public class App1 {
 
     public static void test422() {
         // Define data

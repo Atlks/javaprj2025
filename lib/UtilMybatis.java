@@ -1,35 +1,21 @@
 package lib;
 
-import java.io.IOException;
 import java.io.InputStream;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
-import org.apache.ibatis.transaction.TransactionFactory;
-import org.apache.ibatis.datasource.pooled.PooledDataSource;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.DriverManager;
 import java.util.Map;
 import java.util.Properties;
 
 import static lib.BscLogic.encodejson;
 
-import static lib.BscLogic.*;
 import static lib.BscConvert.*;
 
-public class Util {
+public class UtilMybatis {
 
     public static void main(String[] args) throws Exception {
 
