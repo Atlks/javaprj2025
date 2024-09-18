@@ -1,12 +1,12 @@
    <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-            <version>3.0.9</version> <!-- 根据需要选择合适版本 -->
+            <version>3.0.92</version> <!-- 根据需要选择合适版本 -->
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy</artifactId>
-            <version>3.0.9</version> <!-- 根据需要选择版本 -->
+            <version>3.0.92</version> <!-- 根据需要选择版本 -->
         </dependency>
 
 
