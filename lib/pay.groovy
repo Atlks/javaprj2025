@@ -14,7 +14,7 @@ def funFil = 'BscEncGrv.groovy'
 def functions = new GroovyShell().evaluate(new File(funFil))
 
 
-// 将函数直接引入当前作用域  cant effect
+// 将函数直接引入 当前作用域  cant effect
 //this.&encodeJsonGrv =functions .&encodeJsonGrv
 
 
