@@ -1,6 +1,26 @@
 invk another file fun
 
 
+
+
+## invk sattic glb fun
+
+def static encodeJsonGrv(Object map) throws JsonProcessingException {
+def objectMapper = new ObjectMapper()
+return objectMapper.writeValueAsString(map)
+}
+
+
+//ivk.groovy
+import  static  lib.BscEncGrv.*
+
+def resultJson = encodeJsonGrv([key: 8855443])
+println resultJson
+
+
+
+## ---------- ivk dync meth
+
 在主脚本中使用这些函数
 
 
