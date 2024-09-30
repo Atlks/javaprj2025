@@ -29,26 +29,30 @@ public class UtilMybatis {
             // Example dynamic database URL
             String dbUrl = "dynamic_db_path.sqlt.db";
 
-            // Insert the Map as JSON into the database
-
-            // Convert the Map to JSON
-            String json = encodejson(exampleMap);
-
-            // Get SqlSessionFactory with the dynamic database URL
-            SqlSessionFactory sqlSessionFactory = getSqlSessionFactory(dbUrl);
-
-            // Use MyBatis to insert the JSON into the database
-            SqlSession session = sqlSessionFactory.openSession();
+        Add(exampleMap, dbUrl);
 
 
-            session.insert("crtbl");
+        System.out.println("Map inserted successfully!");
 
-            session.insert("insertJson", json);
-            session.commit(); // Commit the transaction
+    }
+
+    private static void Add(Map<String, Object> exampleMap, String dbUrl) throws Exception {
+        // Insert the Map as JSON into the database
+
+        // Convert the Map to JSON
+        String json = encodejson(exampleMap);
+
+        // Get SqlSessionFactory with the dynamic database URL
+        SqlSessionFactory sqlSessionFactory = getSqlSessionFactory(dbUrl);
+
+        // Use MyBatis to insert the JSON into the database
+        SqlSession session = sqlSessionFactory.openSession();
 
 
-            System.out.println("Map inserted successfully!");
+        session.insert("crtbl");
 
+        session.insert("insertJson", json);
+        session.commit(); // Commit the transaction
     }
 
 //    public static SqlSessionFactory getSqlSessionFactory2(String dbFilePath) {
