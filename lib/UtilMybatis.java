@@ -29,14 +29,14 @@ public class UtilMybatis {
             // Example dynamic database URL
             String dbUrl = "dynamic_db_path.sqlt.db";
 
-        Add(exampleMap, dbUrl);
+        AddRow(exampleMap, dbUrl);
 
 
         System.out.println("Map inserted successfully!");
 
     }
 
-    private static void Add(Map<String, Object> exampleMap, String dbUrl) throws Exception {
+    private static void AddRow(Map<String, Object> exampleMap, String dbUrl) throws Exception {
         // Insert the Map as JSON into the database
 
         // Convert the Map to JSON

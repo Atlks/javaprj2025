@@ -45,24 +45,129 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+
     <dependencies>
+
+
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.17.1</version> <!-- check for the latest version -->
+            <groupId>aaaa</groupId>
+            <artifactId>bbbb</artifactId>
+            <version>3.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/jars/javax.servlet-api-3.1.0.jar</systemPath>
+
+
+
+        </dependency>
+
+
+        <dependency>
+            <groupId>aaaa</groupId>
+            <artifactId>bbbb</artifactId>
+            <version>3.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/jars/jetty-server-9.4.43.v20210629.jar</systemPath>
+
+
+
         </dependency>
 
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.10</version> <!-- check for the latest version -->
+            <groupId>aaaa</groupId>
+            <artifactId>bbbb</artifactId>
+            <version>3.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/jars/jetty-http-9.4.43.v20210629.jarr</systemPath>
+
+
+
         </dependency>
+
+
+
+
+         <!-- jetry -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.4.43.v20210629</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>9.4.43.v20210629</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-http</artifactId>
+            <version>9.4.43.v20210629</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>9.4.43.v20210629</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-io</artifactId>
+            <version>9.4.43.v20210629</version>
+        </dependency>
+
+        <!--
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>your-artifact</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/jars/javax.servlet-api-4.0.1.jar</systemPath>
+
+
+
+        </dependency>
+        -->
+
+
+
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.3.22</version> <!-- 检查最新版本 -->
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.29</version> <!-- 根据需要选择驱动 -->
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version> <!-- 请检查最新版本 -->
+
+        </dependency>
+        <!--
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.17.1</version>
+
+        </dependency>
+
+ -->
 
         <dependency>
             <groupId>org.apache.pdfbox</groupId>
             <artifactId>pdfbox</artifactId>
             <version>2.0.24</version> <!-- 请使用最新版本 -->
         </dependency>
+
+            <dependency>
+                <groupId>com.sparkjava</groupId>
+                <artifactId>spark-core</artifactId>
+                <version>2.9.3</version> <!-- 请检查最新版本 -->
+            </dependency>
 
 
         <dependency>
