@@ -55,8 +55,8 @@ public class UtilMybatis {
 
         // 3. 使用 Map 插入数据
         Map<String, Object> params = new HashMap<>();
-        params.put("k", "exampleKey");
-        params.put("v", "exampleValue");
+//        params.put("k", "exampleKey");
+//        params.put("v", "exampleValue");
 
 
         session.insert("crtbl");
