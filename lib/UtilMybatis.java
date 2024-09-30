@@ -2,12 +2,14 @@ package lib;
 
 import java.io.InputStream;
 
+import mapper.Tab1Mapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
@@ -27,14 +29,43 @@ public class UtilMybatis {
             );
 
             // Example dynamic database URL
-            String dbUrl = "dynamic_db_path.sqlt.db";
+            String dbUrl = "c:/db/payx.db";
 
-        AddRow(exampleMap, dbUrl);
-
+      //  AddRow(exampleMap, dbUrl);
+        AddRowMprMd(exampleMap, dbUrl);
 
         System.out.println("Map inserted successfully!");
 
     }
+
+
+    private static void AddRowMprMd(Map<String, Object> exampleMap, String dbUrl) throws Exception {
+        // Insert the Map as JSON into the database
+
+        // Convert the Map to JSON
+        String json = encodejson(exampleMap);
+
+        // Get SqlSessionFactory with the dynamic database URL
+        SqlSessionFactory sqlSessionFactory = getSqlSessionFactory(dbUrl);
+
+        // Use MyBatis to insert the JSON into the database
+        SqlSession session = sqlSessionFactory.openSession();
+
+        Tab1Mapper tab1Mapper = session.getMapper(Tab1Mapper.class);
+
+        // 3. 使用 Map 插入数据
+        Map<String, Object> params = new HashMap<>();
+        params.put("k", "exampleKey");
+        params.put("v", "exampleValue");
+
+
+        session.insert("crtbl");
+
+        tab1Mapper.insertTab1(params);
+        session.commit();  // 提交事务
+    }
+
+
 
     private static void AddRow(Map<String, Object> exampleMap, String dbUrl) throws Exception {
         // Insert the Map as JSON into the database

@@ -15,5 +15,7 @@
     </environments>
     <mappers>
         <mapper resource="mapper/ExampleMapper.xml"/>
+        <!-- 或者，如果使用注解，可以直接使用下面的配置 -->
+        <mapper class="mapper.Tab1Mapper"/> <!-- 使用注解 Mapper -->
     </mappers>
 </configuration>
