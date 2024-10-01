@@ -1,6 +1,6 @@
 import static spark.Spark.*;
 
-public class App {
+public class AppSprk {
     public static void main(String[] args) {
         // 设置端口
 
