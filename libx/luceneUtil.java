@@ -52,6 +52,13 @@ public class luceneUtil {
          //   System.out.println("Documents indexed successfully in: " + indexPath);
     }
 
+
+    /**
+     * updateDocument uniq idx
+     * @param exampleMap
+     * @param dbUrl
+     * @throws IOException
+     */
     private static void AddRow(Map<String, Object> exampleMap, String dbUrl) throws IOException {
 
 
