@@ -1,3 +1,5 @@
+package doc;
+
 import static spark.Spark.*;
 
 public class AppSprk {

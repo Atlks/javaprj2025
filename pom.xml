@@ -47,6 +47,26 @@
 
 
     <dependencies>
+
+
+
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-core</artifactId>
+                <version>9.9.0</version> <!-- Lucene Core -->
+            </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-analyzers-common</artifactId>
+            <version>8.11.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-queryparser</artifactId>
+            <version>9.1.0</version> <!-- 添加这一行 -->
+        </dependency>
+
         <dependency>
             <groupId>org.rocksdb</groupId>
             <artifactId>rocksdbjni</artifactId>
@@ -60,69 +80,6 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>aaaa</groupId>
-            <artifactId>bbbb</artifactId>
-            <version>3.1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/jars/javax.servlet-api-3.1.0.jar</systemPath>
-
-
-
-        </dependency>
-
-
-        <dependency>
-            <groupId>aaaa</groupId>
-            <artifactId>bbbb</artifactId>
-            <version>3.1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/jars/jetty-server-9.4.43.v20210629.jar</systemPath>
-
-
-
-        </dependency>
-
-        <dependency>
-            <groupId>aaaa</groupId>
-            <artifactId>bbbb</artifactId>
-            <version>3.1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/jars/jetty-http-9.4.43.v20210629.jar</systemPath>
-
-
-
-        </dependency>
-
-
-
-
-         <!-- jetry -->
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>9.4.43.v20210629</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
-            <version>9.4.43.v20210629</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-http</artifactId>
-            <version>9.4.43.v20210629</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-util</artifactId>
-            <version>9.4.43.v20210629</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-io</artifactId>
-            <version>9.4.43.v20210629</version>
-        </dependency>
 
         <!--
         <dependency>
@@ -151,12 +108,7 @@
             <version>8.0.29</version> <!-- 根据需要选择驱动 -->
         </dependency>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version> <!-- 请检查最新版本 -->
 
-        </dependency>
         <!--
 
         <dependency>
@@ -174,11 +126,7 @@
             <version>2.0.24</version> <!-- 请使用最新版本 -->
         </dependency>
 
-            <dependency>
-                <groupId>com.sparkjava</groupId>
-                <artifactId>spark-core</artifactId>
-                <version>2.9.3</version> <!-- 请检查最新版本 -->
-            </dependency>
+
 
 
         <dependency>
@@ -275,41 +223,7 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
 
-        <!-- Spring Boot Starter Web -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot</artifactId>
-            <version>3.2.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
 
 
 
