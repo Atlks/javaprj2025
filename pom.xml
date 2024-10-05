@@ -50,7 +50,9 @@
 
 
 
-            <dependency>
+
+
+        <dependency>
                 <groupId>org.apache.lucene</groupId>
                 <artifactId>lucene-core</artifactId>
                 <version>9.9.0</version> <!-- Lucene Core -->
