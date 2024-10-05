@@ -5,13 +5,19 @@ import java.util.Map;
 
 public class CouchbaseLiteExample {
     public static void main(String[] args) throws CouchbaseLiteException {
+
+
+        // 设置日志记录级别
+        System.setProperty("CBL_LOG_LEVEL", "DEBUG"); // 设置日志级别
+        System.setProperty("CBL_LOG_FILE", "couchbase.log"); // 设置日志文件
+
+        System.out.println("Log level set to: " + System.getProperty("CBL_LOG_LEVEL"));
+        System.out.println("Log file set to: " + System.getProperty("CBL_LOG_FILE"));
+
         // 初始化 Couchbase Lite
         CouchbaseLite.init();
-
-
-
-        setLogLevel(LogLevel.VERBOSE);
-        Logger.setLogFile("couchbase.log"); // 设置日志文件的路径
+   //     setLogLevel(LogLevel.VERBOSE);
+    //    Logger.setLogFile("couchbase.log"); // 设置日志文件的路径
 
 
         // 设置日志记录级别
@@ -35,17 +41,21 @@ public class CouchbaseLiteExample {
         // 创建一个文档
         Map<String, Object> data = new HashMap<>();
         data.put("type", "example");
-        data.put("name", "Couchbase Lite");
+        data.put("name", "name111");
         data.put("version", "3.x.x");
 
         // 插入文档
-        Document doc = new MutableDocument("doc1", data);
-        try {
-            database.save((MutableDocument) doc);
-            System.out.println("Document saved: " + doc.getId());
-        } catch (CouchbaseLiteException e) {
-            e.printStackTrace();
+        for(int i=0;i<999;i++)
+        {
+            Document doc = new MutableDocument("doc"+i, data);
+            try {
+                database.save((MutableDocument) doc);
+                System.out.println("Document saved: " + doc.getId());
+            } catch (CouchbaseLiteException e) {
+                e.printStackTrace();
+            }
         }
+
 
         // 查询文档
         Document retrievedDoc = database.getDocument("doc1");
